@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CardModule } from 'primeng/card';
 
 @Component({
   selector: 'app-post-list',
