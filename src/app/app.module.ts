@@ -9,6 +9,7 @@ import { PostListComponent } from './post-list/post-list.component';
 
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CardModule } from 'primeng/card';
     AppRoutingModule,
     ButtonModule,
     CardModule,
+    RippleModule,
   ],
   providers: [],
   bootstrap: [
