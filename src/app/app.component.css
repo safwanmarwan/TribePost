@@ -1,0 +1,7 @@
+::ng-deep .p-menubar {
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+  border-radius: 0px;
+  padding: 0.5rem 1.0rem 0.5rem 1.0rem;
+}
+
