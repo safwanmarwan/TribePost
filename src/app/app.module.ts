@@ -11,11 +11,13 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { MenubarModule } from 'primeng/menubar';
 import { RippleModule } from 'primeng/ripple';
+import { MenuBarComponent } from './shared/menu-bar/menu-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostListComponent
+    PostListComponent,
+    MenuBarComponent
   ],
   imports: [
     BrowserModule,

@@ -10,8 +10,6 @@ export class AppComponent implements OnInit{
 
   constructor(private primengConfig: PrimeNGConfig) {}
 
-  title = 'TribePost';
-
   ngOnInit() {
     this.primengConfig.ripple = true;
   }   
