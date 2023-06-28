@@ -35,19 +35,34 @@ export class PostDetailsComponent implements OnInit {
   }
 
   getPostDetails(): void {
-    this.http.get<any[]>(`https://jsonplaceholder.typicode.com/posts/${this.postId}`)
-      .subscribe(post => {
-        this.post = post;
-        this.getPostComments();
-      });
+    this.http.get<any[]>(`https://jsonplaceholder.typicode.com/posts/${this.postId}`).subscribe(
+      {
+        next: (post) => {
+          this.post = post;
+        },
+        error: (err: any) => {
+          console.log(`Error: ${JSON.stringify(err)}`);
+          this.router.navigate(['/']);
+        },
+        complete: () => {
+          this.getPostComments();
+        }
+      }
+    );
   }
 
   getPostComments(): void {
-    this.http.get<any[]>(`https://jsonplaceholder.typicode.com/comments?postId=${this.postId}`)
-      .subscribe(comments => {
-        this.comments = comments;
-        this.filteredComments = this.comments;
-      });
+    this.http.get<any[]>(`https://jsonplaceholder.typicode.com/comments?postId=${this.postId}`).subscribe(
+      {
+        next: (comments) => {
+          this.comments = comments;
+          this.filteredComments = this.comments;
+        },
+        error: (err: any) => {
+          console.log(`Error: ${JSON.stringify(err)}`);
+        },
+      }
+    );
   }
 
   filterComments(event: any): void {

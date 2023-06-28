@@ -20,10 +20,16 @@ export class PostListComponent implements OnInit {
   }
 
   getPosts(): void {
-    this.http.get<any[]>('https://jsonplaceholder.typicode.com/posts')
-      .subscribe(posts => {
-        this.posts = posts;
-      });
+    this.http.get<any[]>('https://jsonplaceholder.typicode.com/posts').subscribe(
+      {
+        next: (posts) => {
+          this.posts = posts;
+        }, 
+        error: (err: any) => {
+          console.log(`Error: ${JSON.stringify(err)}`);
+        },
+      }
+    );
   }
 
   navigateToPost(postId: number): void {
