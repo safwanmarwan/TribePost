@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -11,6 +12,7 @@ export class PostListComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -22,5 +24,9 @@ export class PostListComponent implements OnInit {
       .subscribe(posts => {
         this.posts = posts;
       });
+  }
+
+  navigateToPost(postId: number): void {
+    this.router.navigate(['../post', postId]);
   }
 }

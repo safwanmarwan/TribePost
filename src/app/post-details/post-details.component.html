@@ -1,0 +1,29 @@
+<div class="p-5">
+  <p (click)="navigateBack()">
+    <i class="pi pi-arrow-left"></i> 
+    Back
+  </p>
+  <h1>{{post?.title}}</h1>
+  <p>{{post?.body}}</p>
+
+  <h2>Comments</h2>
+
+  <span class="p-input-icon-left">
+    <i class="pi pi-search"></i>
+    <input 
+      pInputText 
+      type="text" 
+      placeholder="Search"
+      [(ngModel)]="inputSearchValue" 
+      (input)="onInputChange()" 
+    />
+  </span>
+
+  <div class="grid">
+    <div *ngFor="let comment of filteredComments" class="col-12">
+      <p-card [header]="comment.name" [subheader]="comment.email">
+        <p>{{ comment.body }}</p>
+      </p-card>
+    </div>
+  </div>
+</div>

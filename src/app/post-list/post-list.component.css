@@ -1,0 +1,14 @@
+::ng-deep .p-card {
+  height: 100%;
+  margin: 8px;
+}
+
+::ng-deep .p-card .p-card-title {
+  text-transform: capitalize;
+}
+
+
+::ng-deep .p-card {
+  height: 100%;
+  margin: 8px;
+}
