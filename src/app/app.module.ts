@@ -12,12 +12,14 @@ import { CardModule } from 'primeng/card';
 import { MenubarModule } from 'primeng/menubar';
 import { RippleModule } from 'primeng/ripple';
 import { MenuBarComponent } from './shared/menu-bar/menu-bar.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostListComponent,
-    MenuBarComponent
+    MenuBarComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,
