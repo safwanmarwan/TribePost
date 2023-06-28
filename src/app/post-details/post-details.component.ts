@@ -11,6 +11,10 @@ export class PostDetailsComponent implements OnInit {
   public postId: any;
   public post: any;
   public comments: any;
+  public filteredComments: any;
+  public filteredEmails: any;
+  public selectedComment: any;
+  public inputSearchValue: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,8 +29,12 @@ export class PostDetailsComponent implements OnInit {
     });
   }
 
+  onInputChange(): void {
+    // Your logic here
+    this.filterComments(this.inputSearchValue);
+  }
+
   getPostDetails(): void {
-    console.log(`ID: ${this.postId}`);
     this.http.get<any[]>(`https://jsonplaceholder.typicode.com/posts/${this.postId}`)
       .subscribe(post => {
         this.post = post;
@@ -38,10 +46,17 @@ export class PostDetailsComponent implements OnInit {
     this.http.get<any[]>(`https://jsonplaceholder.typicode.com/comments?postId=${this.postId}`)
       .subscribe(comments => {
         this.comments = comments;
-        comments.forEach((v, i) => {
-          console.log(`Comment ${i}: ${v}`);
-        })
+        this.filteredComments = this.comments;
       });
+  }
+
+  filterComments(event: any): void {
+    const query = event.toLowerCase();
+    this.filteredComments = this.comments.filter((comment: any) => 
+      comment.name.toLowerCase().includes(query) || 
+      comment.email.toLowerCase().includes(query) || 
+      comment.body.toLowerCase().includes(query)
+    );
   }
 
   navigateBack(): void {

@@ -28,6 +28,5 @@ export class PostListComponent implements OnInit {
 
   navigateToPost(postId: number): void {
     this.router.navigate(['../post', postId]);
-    console.log('CLICKED');
   }
 }
