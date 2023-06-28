@@ -8,6 +8,8 @@ const routes: Routes = [
   { path: 'post/:id', component: PostDetailsComponent },
   // default path redirects to /posts
   { path: '', redirectTo: '/posts', pathMatch: 'full' },
+  // handling unmatched url
+  { path: '**', redirectTo: '/posts' },
 ];
 
 @NgModule({
